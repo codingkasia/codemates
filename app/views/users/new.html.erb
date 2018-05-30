@@ -1,0 +1,25 @@
+<ul>
+    <% if flash[:error] %>
+        <% flash[:error].each do |error| %>
+            <li class="error"><%= error %></li>
+        <% end %>
+    <% end %>
+</ul>
+
+<%= link_to "Login", "/login" %>
+<p></p>
+
+<%= form_for(@user) do |f| %> <!-- should post to /users not /users/new -->
+         
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+    <%= f.label :password %>
+    <%= f.password_field :password %><br />
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %><br />
+   
+
+   
+    <p></p>
+    <%= f.submit %>
+<% end %>
